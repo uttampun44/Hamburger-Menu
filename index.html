@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hamburger</title>
+    <style>
+body{
+    overflow-x: hidden;
+    background-image: url("auckland.jpg");
+    overflow-y: hidden;
+    background-size: cover;
+}
+.heading{
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+label{
+    position: absolute;
+    top: 30%;
+    left: 20px;
+    font-size: 20px;
+}
+label a{
+    text-decoration: none;
+    color: red;
+}
+.ham {
+  position: absolute;
+  /* always keep ham on top of everything */
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  /* show the menu image */
+  background-image: url("hamburger.png");
+  background-size: 100%;
+}
+.showClose {
+  background-image: url("close.png");
+}
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 80%;
+  padding: 50px;
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  /* hide the menu above the screen by default */
+  transform: translateY(-100%);
+  /* transition adds a little animation when sliding in and out the menu */
+  transition: transform 0.2s ease;
+}
+.navbar li {
+    list-style: none;
+}
+.navbar li a{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    padding: 45px;
+    font-size: 25px;
+    color: white;
+}
+.showNav {
+  /* show the menu */
+  transform: translateY(0);
+}
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <label><a href="#">Himalayan Expedition</a></label>
+    </div>
+    <button class="ham"></button>
+  <nav class="navbar">
+    <ul>
+      <li><a class="menuLink" href="#">Home</a></li>
+      <li><a class="menuLink" href="#">Profile</a></li>
+      <li><a class="menuLink" href="#">About</a></li>
+      <li><a class="menuLink" href="#">Contacts</a></li>
+    </ul>
+  </nav>
+  <script>
+    let navbar =  document.querySelector('.navbar');
+  let ham = document.querySelector('.ham');
+  
+  ham.addEventListener('click', toogleHamburger);
+  
+  function toogleHamburger(ham){
+      navbar.classList.toggle('showNav');
+       ham.classList.toogle('closeNav');
+  }
+      </script>
+</body>
+</html>
